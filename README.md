@@ -63,16 +63,16 @@ Run using three parameters as input:
     pyhton ./space_swimmers.py us tau alpha
 
 where:
-	us  -- velocity of the bacteria relative to the flow velocity (set to 0.5)
-	tau -- running time of bacteria between direction changes
-	alpha -- shape of the bacteria (set to 0.98 in the figure)
+us  -- velocity of the bacteria relative to the flow velocity (set to 0.5)
+tau -- running time of bacteria between direction changes
+alpha -- shape of the bacteria (set to 0.98 in the figure)
 	
 the script set ups simulations for all three different swimmer types.
 
 other parameters set to:
-      number of swimmers  -- 50000  (N_bac, line 33)
-      grid size  -- 250
-      dt -- 0.01 s
+number of swimmers  -- 50000  (N_bac, line 33)
+grid size  -- 250
+dt -- 0.01 s
 
 the output is set after 1 min.
       	       	   
