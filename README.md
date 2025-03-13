@@ -1,6 +1,6 @@
-This code produces the first part of results of the paper Guseva & Feudel
-(2025), "Advantages of run-reverse motility pattern of bacteria for tracking
-light and small food sources in dynamic fluid environments".
+This code produces the results of the paper Guseva & Feudel (2025), "Advantages
+of run-reverse motility pattern of bacteria for tracking light and small food
+sources in dynamic fluid environments".
 
 It is written in Python, with additional functions imported from C++ using
 Boost.Python. To run the code make sure to have installed Python 3.13 and
@@ -80,19 +80,19 @@ Run using four parameters as input:
 	 
 for the definition of parameters see item 1 and also:
 
-       	type -- type of motility pattern (can be "NN" -- simple swimmers,
+       	- type -- type of motility pattern (can be "NN" -- simple swimmers,
        	     	"RT" -- swimmers doing run and tumble, "RR" -- swimmers with run
 	       	reverse motility)
-        us -- swimming velocity of bacteria in relation to the fluid velocity
-        tau -- time between reorientation events
-        alpha -- shape of bacteria (from 0 to 1; 0 -- spherical, 1 -- ellongated)
+        - us -- swimming velocity of bacteria in relation to the fluid velocity
+        - tau -- time between reorientation events
+        - alpha -- shape of bacteria (from 0 to 1; 0 -- spherical, 1 -- ellongated)
 
 
         other parameters set to:
-        number of swimmers  -- 1000  (N_bac)
-      	grid size  -- 250
-	    transient time set to -- 1 min (60 s)          
-	    output time -- at the end 
+        - number of swimmers  -- 1000  (N_bac)
+      	- grid size  -- 250
+	    - transient time set to -- 1 min (60 s)          
+	    - output time -- at the end 
 
 to produce Fig. 3 (b, c): run submit_NN.sh
 
