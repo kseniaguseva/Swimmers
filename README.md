@@ -1,17 +1,16 @@
 This code produces the first part of results of the paper Guseva & Feudel
-(2023), "Advantages of run-reverse motility pattern for bacteria in dynamic
-fluid environments".
+(2025), "Advantages of run-reverse motility pattern of bacteria for tracking
+light and small food sources in dynamic fluid environments".
 
 It is written in Python, with additional functions imported from C++ using
-Boost.Python. To run the code make sure to have installed Python 3.11 and
+Boost.Python. To run the code make sure to have installed Python 3.13 and
 Boost.Python.
 
 # Main components of each model:
 -------------------------------
 
 ## Module_homogeneous:
-Models microbial dynamics in homogeneous conditions (no
-food sources). 
+Models microbial dynamics in homogeneous conditions (no food sources).
 
 1. **randomflow_mod.py**: Models a random flow field. For a detailed
 description of the implementation of the random flow field and its
@@ -54,10 +53,10 @@ between Numpy and C++, requires Boost.Python.
 # Run files for different scenarios:
 -----------------------------------
 
-The files generate the results of Guseva & Feudel (2023). Create a file
+The files generate the results of Guseva & Feudel (2025). Create a file
 directory "data" and "Fig".
 
-1. **space_swimmers.py**: Generates the data points for Fig.3 (a).
+1. **space_swimmers.py**: Generates the data points for Fig.2 (a).
 Run using three parameters as input:
 
     pyhton ./space_swimmers.py us tau alpha
@@ -74,9 +73,8 @@ number of swimmers  -- 50000  (N_bac, line 33)
 grid size  -- 250
 dt -- 0.01 s
 
-the output is set after 1 min.
       	       	   
-2. **align.py**: Generates the data poins for Fig.3 (b, c, d).
+2. **align.py**: Generates the data points for Fig.3 and 4 
 Run using four parameters as input:
     	  pyhton ./align_us.py us tau alpha type
 	 
@@ -96,19 +94,17 @@ for the definition of parameters see item 1 and also:
 	    transient time set to -- 1 min (60 s)          
 	    output time -- at the end 
 
+to produce Fig. 3 (b, c): run submit_NN.sh
 
-to produce the data for the Fig. 3 use:
-   (b) run --  submit_us.sh
-   (c) run --  submit_tau.sh
-   (d) run --  submit_alpha.sh
+to produce the data for the Fig. 4 use:
+   (a) run --  submit_vel.sh
+   (b) run --  submit_tau.sh
+   (c) run --  submit_alpha.sh
    
-3. **swimmers_fig_motility.py** and **swimmers_fig_shape.py**, produce the Fig.4
-   (a, b), please consult the manuscript to set up the parameters. The output is
-   saved in the folder Fig. Please note that a series of figures is generated
-   after a transient of 40s (see lines 81 and 82 to set up the output).
    
-4. **dist_source.py** used to produce the data for Fig. 5, please consult the manuscript 
-for parameters. The output is saved in the folder "data".
+4. **shape.py** and **swimmer_vel.py** used to produce the data for Fig. 6,
+please consult the manuscript for parameters. The output is saved in the folder
+"data".
    
 
    

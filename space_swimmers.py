@@ -17,7 +17,7 @@ alpha_input = float(params_input[2])
 
 
 dt = 0.01
-time = int(60./dt)
+time = int(10./dt)
 ug = 0.
 
 for mtype in ["NN", "RR", "RT"]:

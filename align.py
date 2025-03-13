@@ -3,16 +3,17 @@
 from math import *
 from numpy import *
 from pylab import *
-from module_homogeneo.randomflow_mod import *
-from module_homogeneo.swimmers_mod import *
+from module_homogeneos.randomflow_mod import *
+from module_homogeneos.swimmers_mod import *
 import os.path
+import time
 
 ##################################
 #   INITIALIZATION
 ##################################
 
 dt = 0.001                       # step size for integration
-time = int(60./dt)              # simulation time
+time = int(50./dt)              # simulation time  (dec was 60)
 ug = 0.                         # no vertical motion
 
 # input running time (time between switching direction)
@@ -29,8 +30,9 @@ if phi_type == "RR":
     phi  = pi    #  run and reverse 
 
 # set spatial grid and the flow field
-grid = Grid(N = 250, L = pi)             
-randflow = Random_flow(grid, tau = 2*pi, seed = 18)
+grid = Grid(N = 250, L = pi)
+
+randflow = Random_flow(grid, tau = 2*pi)
 
 # sets the ode solver (use a function written in C)
 solver = ode(move_bac_callC).set_integrator('dopri5')
@@ -52,6 +54,8 @@ bac_rt = Ensemble(grid, N_bac = 10000)
 ##################################
 
 u_alignT = []
+u_alignT_sqr = []
+u_alignT_angle = []
 for i in range(time):
     if (i == 0):  # only gets the flow (we need u(t0) and u(t1) for interpolation)
         ux, uy = randflow.get_vel(grid.delta)
@@ -59,8 +63,8 @@ for i in range(time):
 
     ux_p, uy_p = randflow.get_vel(grid.delta)  # for t > t0, gets u(t1)
 
-    swimmer_integrate_periodic(dt, i, bac_rt, ux, uy, ux_p, uy_p, ug, grid,
-                                   swimmers_rt, solver, rw = True)
+    swimmer_integrate_periodic(dt, i, bac_rt, 0.1, ux, uy, ux_p, uy_p, ug, grid,
+                                   swimmers_rt, solver, rw = True) # rw needs to be true for RR  and RT
 
     randflow.flow_evolve(dt, grid)
     ux, uy = ux_p, uy_p
@@ -68,13 +72,23 @@ for i in range(time):
     ######################################
     # computes <p.u>
     ######################################
-    u_align = []
-    for j in range(0, bac_rt.N_bac):
-        ux_i = ux[int(bac_rt.x[j]/grid.delta), int(bac_rt.y[j]/grid.delta)]
-        uy_i = uy[int(bac_rt.x[j]/grid.delta), int(bac_rt.y[j]/grid.delta)]
-        u_align.append(dot([ux_i/sqrt(ux_i**2+uy_i**2), uy_i/sqrt(ux_i**2+uy_i**2)], [cos(bac_rt.theta[j]), sin(bac_rt.theta[j])])**2)
+    if(i*dt >= 2.):                  # leaves a transient out
+        if(i%100 == 0):             # gets average at different time points
+            u_align = []
+            u_align_sqr = []
+            u_align_angle = []
+            for j in range(0, bac_rt.N_bac):
+                ux_i = ux[int(bac_rt.x[j]/grid.delta), int(bac_rt.y[j]/grid.delta)]
+                uy_i = uy[int(bac_rt.x[j]/grid.delta), int(bac_rt.y[j]/grid.delta)]
+                #u_align.append(dot([ux_i/sqrt(ux_i**2+uy_i**2), uy_i/sqrt(ux_i**2+uy_i**2)], [cos(bac_rt.theta[j]), sin(bac_rt.theta[j])]))
+                u_align_sqr.append(dot([ux_i/sqrt(ux_i**2+uy_i**2), uy_i/sqrt(ux_i**2+uy_i**2)], [cos(bac_rt.theta[j]), sin(bac_rt.theta[j])])**2)
+                u_align.append(abs(dot([ux_i/sqrt(ux_i**2+uy_i**2), uy_i/sqrt(ux_i**2+uy_i**2)], [cos(bac_rt.theta[j]), sin(bac_rt.theta[j])])))
+                u_align_angle.append(arccos(dot([ux_i/sqrt(ux_i**2+uy_i**2), uy_i/sqrt(ux_i**2+uy_i**2)], [cos(bac_rt.theta[j]), sin(bac_rt.theta[j])])))
 
-    # if(i*dt > 2.):                  # leaves a transient out
+            u_alignT_sqr.append(mean(u_align_sqr))
+            u_alignT_angle.append(mean(u_align_angle))
+            u_alignT.append(mean(u_align))
+        # if(i*dt > 2.):                  # leaves a transient out
     #     if(i%10 == 0):             # gets average at different time points
     #         u_alignT.append(mean(abs(u_align)))
 
@@ -82,13 +96,13 @@ for i in range(time):
 #   OUTPUT
 ##################################
     
-filename = "data_new/align-us%.3f-tau%.3f_alpha%.3f_%s" %(fr_use, tau_r, alpha_use, phi_type)
+filename = "data_final/align-us%.3f-tau%.3f_alpha%.3f_%s" %(fr_use, tau_r, alpha_use, phi_type)
 print(filename)
 if os.path.exists(filename):
     os.remove(filename)
 temp_file = open(filename, "w")
-for i in u_align:
-    print(i, end="\n", file= temp_file)
+for i in range(0, len(u_alignT)):
+    print(u_alignT[i], u_alignT_sqr[i], u_alignT_angle[i], end="\n", file= temp_file)
    
 temp_file.close()    
         
