@@ -1,6 +1,0 @@
-CXXFLAGS=-Wall -O3 -g -std=c++17 -fPIC -lpython3.10  -lboost_python3 -lboost_numpy3 -I. -I/usr/include/python3.10 -I/usr/lib/python3.10/site-packages/numpy/core/include/ -shared -Wl,-soname,libfluid.so
-
-ALL: libfluid.so
-
-libfluid.so: fluid.cc
-	g++ fluid.cc -o libfluid.so ${CXXFLAGS} 
