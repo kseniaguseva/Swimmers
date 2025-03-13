@@ -1,0 +1,247 @@
+	ksenia
+  		.adobe
+  		.adobe-reader-11
+  		.alsaplayer
+  		.bundle
+  		.cache
+  		.ccache
+  		.color
+  		.conda
+  		.config
+  		.cups
+  		.dbus
+  		.dosbox
+  		.dropbox
+  		.dropbox-dist
+  		.eclipse
+  		.F5Networks
+  		.fltk
+  		.gimp-2.8
+  		.gnome
+  		.gnome2
+  		.gnome2_private
+  		.gnupg
+  		.gphoto
+  		.gstreamer-0.10
+  		.hplip
+  		.hugindata
+  		.imagej
+  		.ipython
+  		.java
+  		.jupyter
+  		.local
+  		.lyx
+  		.macromedia
+  		.magick
+  		.matlab
+  		.metadata
+  		.mozilla
+  		.mplayer
+  		.netlogo
+  		.npm
+  		.nuget
+  		.openshot
+  		.pki
+  		.sage
+  		.Skype
+  		.ssh
+  		.steam
+  		.subversion
+  		.swt
+  		.texlive
+  		.thumbnails
+  		.thunderbird
+  		.tooling
+  		.xournal
+  		.xournalpp
+  		.zoom
+  		.zotero
+  		100EOS5D
+  		AUTO
+  		Calibre Library
+  		camera_videos
+  		deja-dup
+  		Desktop
+  		Doc_Vienna
+  		Documents
+  		Downloads
+  		Dropbox
+  		E-mails-sent
+  		eclipse-workspace
+  		email.d-old
+  		go
+  		Igor
+  		intel
+  		Job_applications
+  		kingston
+  		Lecutres
+  		Music
+  		My_events
+  		My_Notes
+  		My_Papers
+  		My_Projects
+    		2016
+    		2018
+    		Excitability
+    		Global_models
+    		Iceland2023
+    		Inference_interactions
+    		Katherina
+    		Microswimmers
+      		swimmer
+      		Swimmers
+      		Swimmers_final
+      		Swimmers_modules
+      		Swimmers_Revision
+        		data_dec
+        		data_dec2
+        		data_new
+        		df
+        		Fig_final
+        		module_homogeneos
+          		__pycache__
+            *Treemacs-Scoped-Buffer-Perspective main*
+           		demangle.cc
+           		demangle.hh
+           		fluid.cc
+           libfluid.so
+           Makefile
+           		numpy_bind.hh
+           		randomflow_mod.py
+           		swimmers_mod.py
+        		modules_source
+        		test_turbenerg
+          *Minibuf-1*
+          *Treemacs-Scoped-Buffer-Perspective main*
+         		align.py
+         		align_noise.py
+         		dist_source.py
+         		README.md
+         		space_swimmers.py
+         		submit_alpha.sh
+         		submit_tau.sh
+         		submit_vel.sh
+         		submit_vel2.sh
+         		submit_vel3.sh
+         		swimmers_fig_motility.py
+         		swimmers_fig_shape.py
+    		Motility
+    		Networks
+    		Paper_enzymes
+    		Perturbations
+    		Soil_space
+    		SomSOM
+    		Students
+    		Tests
+     		align_time.pdf
+  		My_Proposals
+  		My_revisions
+  		My_students
+  		My_Talks
+  		My_WebPage
+  		new_somosom
+  		Nextcloud
+  		Other
+  		Pictures
+  		pikaur
+  		Projects
+  		Public
+  		R
+  		reStream
+  		Scripts
+  		Seminars
+  		SomSOM
+  		SOMSOM
+  		SomSOM-new
+  		Sync
+  		Templates
+  		Videos
+  		VirtualBox VMs
+  		Web_ksenia
+  		Zotero
+   .aspell.en.prepl
+   .aspell.en.pws
+   .bash_history
+   .bash_history-00634.tmp
+   .bash_history-00994.tmp
+   .bash_history-07988.tmp
+   .bash_history-09625.tmp
+   .bash_history-10307.tmp
+   .bash_history-10435.tmp
+   .bash_history-11486.tmp
+   .bash_history-12697.tmp
+   .bash_history-13929.tmp
+   .bash_history-20796.tmp
+   .bash_history-21250.tmp
+   .bash_history-23092.tmp
+   .bash_history-25582.tmp
+   .bash_history-30400.tmp
+   .bash_history-31291.tmp
+   .bash_history-33407.tmp
+   .bash_history-35022.tmp
+   .bash_history-38447.tmp
+   .bash_history-38945.tmp
+   .bash_history-44202.tmp
+   .bash_history-46269.tmp
+   .bash_history-47687.tmp
+   .bash_history-48742.tmp
+   .bash_history-50517.tmp
+   .bash_history-54929.tmp
+   .bash_history-57696.tmp
+   .bash_history-58053.tmp
+   .bash_history-58288.tmp
+   .bash_history-60527.tmp
+   .bash_history-63471.tmp
+   .bash_history-64878.tmp
+   .bash_history-65123.tmp
+   .bash_history-65215.tmp
+   .bash_history-65406.tmp
+   .bash_history-66018.tmp
+   .bash_history-67644.tmp
+   .bash_history-67830.tmp
+   .bash_history-69254.tmp
+   .bash_history-71517.tmp
+   .bash_history-77037.tmp
+   .bash_history-78159.tmp
+   .bash_history-81997.tmp
+   .bash_history-84687.tmp
+   .bash_history-87897.tmp
+   .bash_history-91958.tmp
+   .bash_history-92819.tmp
+   .bash_history-93959.tmp
+   .bash_history-95859.tmp
+   .bash_history-95941.tmp
+   .bash_history-97187.tmp
+   .bash_history-97757.tmp
+   .bash_logout
+   .bash_profile
+   	󱆃	.bashrc
+   		.brz.log
+   .esd_auth
+   .gdb-history
+   .gdbinit
+   .gitconfig
+   .gtk-bookmarks
+   .ICEauthority
+   .lesshst
+   .octave_hist
+   .pulse-cookie
+   .python_history
+   .Rhistory
+   .screenrc
+   .steampath
+   .steampid
+   .wget-hsts
+   		amgut1filt.csv
+   		backup-old.sh
+   		backup.sh
+   		covid_guseva.pdf
+   D
+   		hs_err_pid4476.log
+   		iceland_trip_SBHZ3L.pdf
+   		net_KG.pdf
+   octave-workspace
+   		paige.txt
+   		Qin et al, 2024 Dual roles of microbes in mediating soil carbon dynamics in response to warming.pdf
+   		test.sh
+   	󰘚	v

@@ -1,0 +1,47 @@
+#!/usr/bin/env python
+
+from math import *
+from numpy import *
+from numpy.random import normal
+from numpy.fft import *
+import numpy.random
+from numpy.random import *
+from scipy import fftpack
+from . import libfluid
+from . import randomflow_mod
+
+def move_bac(t, x, N_bac, us, ux, uy, N, delta, ug, alpha):
+    dtheta = []
+    dx = []
+    dy = []
+    y0 = 0 #int(ug*t/delta)%(N+1) # motion of the center of the vortex
+
+    ux = np.roll(ux, y0, axis=1)
+    uy = np.roll(uy, y0, axis=1)
+    ux = ux.T
+    uy = uy.T 
+
+    omega = zeros((N+1, N+1))
+    scos = zeros((N+1, N+1))
+    ssin = zeros((N+1, N+1))
+    libfluid.vorticity(omega, scos, ssin, ux, uy, delta)
+    for i in xrange(0, N_bac):
+        x1 = x[i]
+        x2 = x[N_bac + i]
+        theta = x[2*N_bac + i]
+        
+        
+        yn = int(x1/delta)%(N+1)
+        xn = int(x2/delta)%(N+1)
+        #theta = theta[0]
+
+        ux_pos = ux[xn, yn]
+        uy_pos = uy[xn, yn]
+    
+        dtheta.append(omega[xn, yn] + alpha*(0.5*scos[xn,yn]*cos(2*theta) - ssin[xn,yn]*sin(2*theta)))
+        dx.append(ux_pos + us*cos(theta))
+        dy.append(uy_pos + us*sin(theta) + ug)
+
+    return array([dx, dy, dtheta]).flatten()
+
+
